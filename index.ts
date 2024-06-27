@@ -41,7 +41,7 @@ type TranslateConfig = {
 type DeepLConfig = ComponentConfig &
 	(InitConfig | DetectConfig | TranslateConfig);
 
-export class DeepL extends Component<DeepLConfig> {
+export default class DeepL extends Component<DeepLConfig> {
 	translator?: Translator;
 	async initialize(config: DeepLConfig): Promise<void> {
 		if (isInitConfig(config)) {
@@ -58,7 +58,7 @@ export class DeepL extends Component<DeepLConfig> {
 		return undefined;
 	}
 
-	async finalize(config: DeepLConfig): Promise<void> {
+	async finalize(_config: DeepLConfig): Promise<void> {
 		this.translator = undefined;
 	}
 
