@@ -1,37 +1,37 @@
 {
-	"name": "mrdamian-plugin-deepl",
-	"productName": "mrdamian-plugin-deepl",
-	"description": "Mr.Damian plugin for translate text with DeepL",
-	"homepage": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/README.md",
-	"repository": "https://github.com/yuniruyuni/mrdamian-plugin-deepl",
-	"bugs": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/issues",
-	"version": "0.0.5",
-	"author": {
-		"name": "yuniruyuni",
-		"email": "yuniruyuni@gmail.com"
-	},
-	"files": ["index.ts", "tsconfig.json", "dist"],
-	"keywords": ["mrdamian"],
-	"license": "MIT",
-	"main": "index.ts",
-	"type": "module",
-	"scripts": {
-		"check": "biome check --write",
-		"format": "biome format --write",
-		"lint": "biome lint",
-		"test": "bun test",
-		"type": "tsc --noEmit"
-	},
-	"dependencies": {
-		"deepl-node": "^1.13.0",
-		"mrdamian": "^0.0.3"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.1",
-		"@types/bun": "^1.1.4",
-		"@types/node": "^20.14.4",
-		"bun": "^1.1.13",
-		"npm-run-all2": "^6.2.0",
-		"typescript": "^5.4.5"
-	}
+  "name": "mrdamian-plugin-deepl",
+  "productName": "mrdamian-plugin-deepl",
+  "description": "Mr.Damian plugin for translate text with DeepL",
+  "homepage": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/README.md",
+  "repository": "https://github.com/yuniruyuni/mrdamian-plugin-deepl",
+  "bugs": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/issues",
+  "version": "0.0.6",
+  "author": {
+    "name": "yuniruyuni",
+    "email": "yuniruyuni@gmail.com"
+  },
+  "files": ["index.ts", "tsconfig.json", "dist"],
+  "keywords": ["mrdamian"],
+  "license": "MIT",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "check": "biome check --write",
+    "format": "biome format --write",
+    "lint": "biome lint",
+    "test": "bun test",
+    "type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "deepl-node": "^1.13.0",
+    "mrdamian-plugin": "^0.0.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.1",
+    "@types/bun": "^1.1.6",
+    "@types/node": "^20.14.9",
+    "bun": "^1.1.17",
+    "npm-run-all2": "^6.2.0",
+    "typescript": "^5.5.3"
+  }
 }
