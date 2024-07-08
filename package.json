@@ -5,13 +5,19 @@
   "homepage": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/README.md",
   "repository": "https://github.com/yuniruyuni/mrdamian-plugin-deepl",
   "bugs": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/issues",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": {
     "name": "yuniruyuni",
     "email": "yuniruyuni@gmail.com"
   },
-  "files": ["index.ts", "tsconfig.json", "dist"],
-  "keywords": ["mrdamian"],
+  "files": [
+    "index.ts",
+    "tsconfig.json",
+    "dist"
+  ],
+  "keywords": [
+    "mrdamian"
+  ],
   "license": "MIT",
   "main": "index.ts",
   "type": "module",
