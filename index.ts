@@ -1,4 +1,4 @@
-import { Component, type ComponentConfig, type Field } from "mrdamian-plugin";
+import type { Component, ComponentConfig, Field } from "mrdamian-plugin";
 
 import {
 	type SourceLanguageCode,
@@ -39,7 +39,7 @@ type TranslateConfig = {
 type DeepLConfig = ComponentConfig &
 	(InitConfig | DetectConfig | TranslateConfig);
 
-export default class DeepL extends Component<DeepLConfig> {
+export default class DeepL implements Component<DeepLConfig> {
 	translator?: Translator;
 	async initialize(config: DeepLConfig): Promise<void> {
 		if (isInitConfig(config)) {
