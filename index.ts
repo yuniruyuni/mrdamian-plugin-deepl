@@ -1,4 +1,4 @@
-import type { Component, ComponentConfig, Field } from "mrdamian-plugin";
+import type { Action, Component, Field } from "mrdamian-plugin";
 
 import {
 	type SourceLanguageCode,
@@ -6,28 +6,21 @@ import {
 	Translator,
 } from "deepl-node";
 
-type InitConfig = {
+type InitAction = {
 	action: "init" | "" | undefined;
 	apikey: string;
 };
 
-function isInitConfig(
-	config: DeepLConfig,
-): config is ComponentConfig & InitConfig {
-	if (config.action === undefined) return true;
-	if (config.action === "") return true;
-	if (config.action === "init") return true;
+function isInitAction(
+	action: DeepLAction,
+): action is Action & InitAction {
+	if (action.action === undefined) return true;
+	if (action.action === "") return true;
+	if (action.action === "init") return true;
 	return false;
 }
 
-type DetectConfig = {
-	action: "detect";
-	args: {
-		message: string;
-	};
-};
-
-type TranslateConfig = {
+type TranslateAction = {
 	action: "translate";
 	args: {
 		message: string;
@@ -36,40 +29,39 @@ type TranslateConfig = {
 	};
 };
 
-type DeepLConfig = ComponentConfig &
-	(InitConfig | DetectConfig | TranslateConfig);
+type DeepLAction = Action & (InitAction | TranslateAction);
 
-export default class DeepL implements Component<DeepLConfig> {
+export default class DeepL implements Component<DeepLAction> {
 	translator?: Translator;
-	async initialize(config: DeepLConfig): Promise<void> {
-		if (isInitConfig(config)) {
-			this.translator = new Translator(config.apikey);
+	async initialize(action: DeepLAction): Promise<void> {
+		if (isInitAction(action)) {
+			this.translator = new Translator(action.apikey);
 		}
 		return undefined;
 	}
 
-	async process(config: DeepLConfig): Promise<Field> {
-		switch (config.action) {
+	async process(action: DeepLAction): Promise<Field> {
+		switch (action.action) {
 			case "translate":
-				return await this.translate(config);
+				return await this.translate(action);
 		}
 		return undefined;
 	}
 
-	async finalize(_config: DeepLConfig): Promise<void> {
+	async finalize(_action: DeepLAction): Promise<void> {
 		this.translator = undefined;
 	}
 
-	async translate(config: TranslateConfig): Promise<Field> {
+	async translate(action: TranslateAction): Promise<Field> {
 		if (!this.translator) return undefined;
 		const results = await this.translator.translateText(
-			config.args.message,
-			config.args.source ? (config.args.source as SourceLanguageCode) : null,
-			config.args.target as TargetLanguageCode,
+			action.args.message,
+			action.args.source ? (action.args.source as SourceLanguageCode) : null,
+			action.args.target as TargetLanguageCode,
 		);
 		return {
 			source_lang: results.detectedSourceLang,
-			target_lang: config.args.target,
+			target_lang: action.args.target,
 			text: results.text,
 		};
 	}
