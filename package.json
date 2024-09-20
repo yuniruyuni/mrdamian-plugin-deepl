@@ -5,7 +5,7 @@
   "homepage": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/README.md",
   "repository": "https://github.com/yuniruyuni/mrdamian-plugin-deepl",
   "bugs": "https://github.com/yuniruyuni/mrdamian-plugin-deepl/issues",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "author": {
     "name": "yuniruyuni",
     "email": "yuniruyuni@gmail.com"
@@ -29,15 +29,15 @@
     "type": "tsc --noEmit"
   },
   "dependencies": {
-    "deepl-node": "^1.13.0",
+    "deepl-node": "^1.14.0",
     "mrdamian-plugin": "^0.0.20"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/bun": "^1.1.6",
-    "@types/node": "^20.14.12",
-    "bun": "^1.1.20",
-    "npm-run-all2": "^6.2.2",
-    "typescript": "^5.5.4"
+    "@types/bun": "^1.1.9",
+    "@types/node": "^20.16.5",
+    "bun": "^1.1.28",
+    "npm-run-all2": "^6.2.3",
+    "typescript": "^5.6.2"
   }
 }
